@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>basalt build system</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> basalt build system</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#basalt">basalt</a></li>
+                
+                    <li><a class="toctree-l4" href="#a-dwarf-standing-on-the-shoulders-of-giants">A dwarf - standing on the shoulders of giants</a></li>
+                
+                    <li><a class="toctree-l4" href="#the-history-of-basalt">The history of basalt</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">basalt build system</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="basalt">basalt</h1>
+<p>basalt allows you to build parameterized packages for Linux (and even OSX or FreeBSD). This is very handy, if you want to build several packages of one project for different customers, or if you need to build packages with small differences for several hosts.</p>
+<p>To build packages you basically need a <a href="https://github.com/basalt/go-get-a-martini-bottle/blob/master/hello_martini/configs/go.dajool.com.yaml">YAML config</a> and a <a href="https://github.com/basalt/go-get-a-martini-bottle/blob/master/hello_martini/tasks.py">build file</a>. In this example, the package is generated with <code>invoke build_deb --config configs/go.dajool.com.yaml</code> and packages a go application with all the configes needed. Even the webserver config is generated with the information from the YAML file and a post-install-script takes care of the server reload.</p>
+<h2 id="a-dwarf-standing-on-the-shoulders-of-giants">A dwarf - standing on the shoulders of giants</h2>
+<p>basalt makes havy usage of <a href="https://github.com/pyinvoke/invoke">invoke</a> and <a href="https://github.com/jordansissel/fpm/wiki">fpm</a> for the package generation.</p>
+<h2 id="the-history-of-basalt">The history of basalt</h2>
+<p>basalt came to being with this tree blog posts:</p>
+<ol>
+<li><a href="https://brejoc.com/cup-recipe-for-django-python-deployment-or-how-to-make-your-admin-happy/">Cup-Recipe For (Django) Python Deployment - Or How To Make Your Admin Happy</a></li>
+<li><a href="https://brejoc.com/cup-recipe-for-django-python-deployment-part-2-detailed-overview/">Cup-Recipe For (Django) Python Deployment Part 2 - Detailed Overview</a></li>
+<li><a href="https://brejoc.com/cup-recipe-for-django-python-deployment-part-3-deployment/">Cup-Recipe For (Django) Python Deployment Part 3 - Deployment</a></li>
+</ol>
+<h2 id="installation">Installation</h2>
+<h3 id="packages-for-ubuntu-1404">Packages for Ubuntu 14.04</h3>
+<p>There are packages available for Ubuntu 14.04 from my personal repository. The packages are signed, so that apt won't complain and you can be sure that they are from me. I'm trying to keep this repository stable, but you shouldn't bet all you money on it.</p>
+<p>Just download and install <a href="http://pelicanbay.de/pool/main/p/pelicanbay-apt-repository/pelicanbay-apt-repository_0.1_all.deb">this package</a>. It will add an entry to <code>/etc/apt/sources.d/</code> and import the key. After that you can install basalt via apt:</p>
+<p><code>apt update &amp;&amp; apt install basalt</code></p>
+<h3 id="from-source">From source</h3>
+<p>Since I tried to avoid the chicken and egg problem, you won't need basalt to generate packages for basalt. But you'll have to install <a href="https://github.com/jordansissel/fpm">fpm</a>. Usually it should be enough to just install ruby and then execute <code>gem install fpm</code>. I not sure, but you might also need to install <code>build-essential</code> for some of the packages.</p>
+<h4 id="packaging-the-dependencies">Packaging the dependencies</h4>
+<p><code>git clone https://github.com/basalt/dependencies.git</code><br />
+<code>cd dependencies/ubuntu/14.04/</code><br />
+<code>cd fpm &amp;&amp; make package_deb</code><br />
+<code>cd ../python-invoke &amp;&amp; make package_deb</code><br />
+<code>cd ../python-sh &amp;&amp; make package_deb</code>  </p>
+<p>Install all generated packages.</p>
+<h4 id="packaging-the-python-core-of-basalt">Packaging the python core of basalt</h4>
+<p><code>git clone https://github.com/basalt/python-basalt.git</code><br />
+<code>cd python-basalt &amp;&amp; make package_deb</code> </p>
+<p>Install the generated package.</p>
+<h4 id="packaging-of-basalt">Packaging of basalt</h4>
+<p><code>git clone https://github.com/basalt/basalt.git</code><br />
+<code>cd basalt &amp;&amp; make package_deb</code>  </p>
+<p>Install the generated package.</p>
+<p>You are done! :)</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2016-03-22 21:09:56.997305
+-->

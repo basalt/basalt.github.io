@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "basalt\n\n\nbasalt allows you to build parameterized packages for Linux (and even OSX or FreeBSD). This is very handy, if you want to build several packages of one project for different customers, or if you need to build packages with small differences for several hosts.\n\n\nTo build packages you basically need a \nYAML config\n and a \nbuild file\n. In this example, the package is generated with \ninvoke build_deb --config configs/go.dajool.com.yaml\n and packages a go application with all the configes needed. Even the webserver config is generated with the information from the YAML file and a post-install-script takes care of the server reload.\n\n\nA dwarf - standing on the shoulders of giants\n\n\nbasalt makes havy usage of \ninvoke\n and \nfpm\n for the package generation.\n\n\nThe history of basalt\n\n\nbasalt came to being with this tree blog posts:\n\n\n\n\nCup-Recipe For (Django) Python Deployment - Or How To Make Your Admin Happy\n\n\nCup-Recipe For (Django) Python Deployment Part 2 - Detailed Overview\n\n\nCup-Recipe For (Django) Python Deployment Part 3 - Deployment\n\n\n\n\nInstallation\n\n\nPackages for Ubuntu 14.04\n\n\nThere are packages available for Ubuntu 14.04 from my personal repository. The packages are signed, so that apt won't complain and you can be sure that they are from me. I'm trying to keep this repository stable, but you shouldn't bet all you money on it.\n\n\nJust download and install \nthis package\n. It will add an entry to \n/etc/apt/sources.d/\n and import the key. After that you can install basalt via apt:\n\n\napt update \n apt install basalt\n\n\nFrom source\n\n\nSince I tried to avoid the chicken and egg problem, you won't need basalt to generate packages for basalt. But you'll have to install \nfpm\n. Usually it should be enough to just install ruby and then execute \ngem install fpm\n. I not sure, but you might also need to install \nbuild-essential\n for some of the packages.\n\n\nPackaging the dependencies\n\n\ngit clone https://github.com/basalt/dependencies.git\n\n\ncd dependencies/ubuntu/14.04/\n\n\ncd fpm \n make package_deb\n\n\ncd ../python-invoke \n make package_deb\n\n\ncd ../python-sh \n make package_deb\n  \n\n\nInstall all generated packages.\n\n\nPackaging the python core of basalt\n\n\ngit clone https://github.com/basalt/python-basalt.git\n\n\ncd python-basalt \n make package_deb\n \n\n\nInstall the generated package.\n\n\nPackaging of basalt\n\n\ngit clone https://github.com/basalt/basalt.git\n\n\ncd basalt \n make package_deb\n  \n\n\nInstall the generated package.\n\n\nYou are done! :)", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#basalt", 
+            "text": "basalt allows you to build parameterized packages for Linux (and even OSX or FreeBSD). This is very handy, if you want to build several packages of one project for different customers, or if you need to build packages with small differences for several hosts.  To build packages you basically need a  YAML config  and a  build file . In this example, the package is generated with  invoke build_deb --config configs/go.dajool.com.yaml  and packages a go application with all the configes needed. Even the webserver config is generated with the information from the YAML file and a post-install-script takes care of the server reload.", 
+            "title": "basalt"
+        }, 
+        {
+            "location": "/#a-dwarf-standing-on-the-shoulders-of-giants", 
+            "text": "basalt makes havy usage of  invoke  and  fpm  for the package generation.", 
+            "title": "A dwarf - standing on the shoulders of giants"
+        }, 
+        {
+            "location": "/#the-history-of-basalt", 
+            "text": "basalt came to being with this tree blog posts:   Cup-Recipe For (Django) Python Deployment - Or How To Make Your Admin Happy  Cup-Recipe For (Django) Python Deployment Part 2 - Detailed Overview  Cup-Recipe For (Django) Python Deployment Part 3 - Deployment", 
+            "title": "The history of basalt"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#packages-for-ubuntu-1404", 
+            "text": "There are packages available for Ubuntu 14.04 from my personal repository. The packages are signed, so that apt won't complain and you can be sure that they are from me. I'm trying to keep this repository stable, but you shouldn't bet all you money on it.  Just download and install  this package . It will add an entry to  /etc/apt/sources.d/  and import the key. After that you can install basalt via apt:  apt update   apt install basalt", 
+            "title": "Packages for Ubuntu 14.04"
+        }, 
+        {
+            "location": "/#from-source", 
+            "text": "Since I tried to avoid the chicken and egg problem, you won't need basalt to generate packages for basalt. But you'll have to install  fpm . Usually it should be enough to just install ruby and then execute  gem install fpm . I not sure, but you might also need to install  build-essential  for some of the packages.", 
+            "title": "From source"
+        }, 
+        {
+            "location": "/#packaging-the-dependencies", 
+            "text": "git clone https://github.com/basalt/dependencies.git  cd dependencies/ubuntu/14.04/  cd fpm   make package_deb  cd ../python-invoke   make package_deb  cd ../python-sh   make package_deb     Install all generated packages.", 
+            "title": "Packaging the dependencies"
+        }, 
+        {
+            "location": "/#packaging-the-python-core-of-basalt", 
+            "text": "git clone https://github.com/basalt/python-basalt.git  cd python-basalt   make package_deb    Install the generated package.", 
+            "title": "Packaging the python core of basalt"
+        }, 
+        {
+            "location": "/#packaging-of-basalt", 
+            "text": "git clone https://github.com/basalt/basalt.git  cd basalt   make package_deb     Install the generated package.  You are done! :)", 
+            "title": "Packaging of basalt"
+        }
+    ]
+}
